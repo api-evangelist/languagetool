@@ -1,0 +1,54 @@
+{
+    "name": "LanguageTool",
+    "description": "LanguageTool is a proofreading software for English, German, Spanish, Russian, and more than 20 other languages.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/1606-languagetool.jpg",
+    "tags": [
+        "api provider",
+        "grammar",
+        "have api",
+        "have swagger",
+        "languages",
+        "new",
+        "proofreading",
+        "spelling"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/languagetool\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "LanguageTool",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/1606-languagetool.jpg",
+            "humanURL": "http:\/\/www.languagetool.org\/http-api\/",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/languagetool-openapi.json"
+                },
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/languagetool.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Website",
+            "url": "http:\/\/www.languagetool.org\/http-api\/"
+        },
+        {
+            "type": "Swagger",
+            "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-definitions\/swagger\/1606-2019-09-03-19-31-25.json"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/languagetoolorg"
+        }
+    ]
+}
