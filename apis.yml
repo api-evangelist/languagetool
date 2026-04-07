@@ -1,8 +1,8 @@
 aid: languagetool
 name: LanguageTool
 description: >-
-  Check texts for style and grammar issues with LanguageTool. Please consider
-  the following default limitations: 
+  Check texts for style and grammar issues with LanguageTool. Please consider the
+  following default limitations:.
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -18,8 +18,8 @@ apis:
   - aid: languagetool:languagetool
     name: LanguageTool
     description: >-
-      Check texts for style and grammar issues with LanguageTool. Please
-      consider the following default limitations: 
+      Check texts for style and grammar issues with LanguageTool. Please consider
+      the following default limitations:.
     humanURL: ' https://languagetool.org/http-api/'
     tags:
       - API
