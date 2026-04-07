@@ -7,8 +7,7 @@ type: Index
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-tags:
-  - API
+tags: []
 created: '2025-02-08'
 modified: '2026-03-16'
 url: >-
@@ -21,8 +20,7 @@ apis:
       Check texts for style and grammar issues with LanguageTool. Please consider
       the following default limitations:.
     humanURL: ' https://languagetool.org/http-api/'
-    tags:
-      - API
+    tags: []
     properties:
       - type: Documentation
         url: ' https://languagetool.org/http-api/'
