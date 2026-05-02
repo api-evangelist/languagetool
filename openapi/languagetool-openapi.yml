@@ -1,0 +1,342 @@
+openapi: 3.0.3
+info:
+  title: LanguageTool HTTP API
+  description: >-
+    LanguageTool checks texts for style and grammar issues. The HTTP API
+    provides programmatic access to grammar checking, language detection,
+    and personal dictionary management.
+  version: "1.0"
+  contact:
+    name: LanguageTool
+    url: https://languagetool.org/http-api/
+  license:
+    name: LGPL-2.1
+    url: https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+servers:
+  - url: https://api.languagetool.org/v2
+    description: Public LanguageTool API
+  - url: https://api.languagetoolplus.com/v2
+    description: LanguageTool Plus (Premium) API
+paths:
+  /check:
+    post:
+      summary: Check text for grammar and style issues
+      description: >-
+        Checks a text for style and grammar issues. Returns a list of matches
+        with messages, suggested replacements, and rule context.
+      operationId: checkText
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+                - language
+              properties:
+                text:
+                  type: string
+                  description: The text to be checked. Either text or data is required.
+                data:
+                  type: string
+                  description: >-
+                    The text to be checked, given as a JSON document containing
+                    formatting markup.
+                language:
+                  type: string
+                  description: >-
+                    A language code like en-US, de-DE, or fr. Use auto for
+                    automatic language detection.
+                  example: en-US
+                username:
+                  type: string
+                  description: Username for premium API access.
+                apiKey:
+                  type: string
+                  description: API key for premium API access.
+                level:
+                  type: string
+                  enum: [default, picky]
+                  description: Detection level. Use picky for more issues to be detected.
+                enabledRules:
+                  type: string
+                  description: Comma-separated list of rule IDs to enable.
+                disabledRules:
+                  type: string
+                  description: Comma-separated list of rule IDs to disable.
+                enabledCategories:
+                  type: string
+                  description: Comma-separated list of category IDs to enable.
+                disabledCategories:
+                  type: string
+                  description: Comma-separated list of category IDs to disable.
+                preferredVariants:
+                  type: string
+                  description: Preferred language variants (e.g. en-US, de-DE).
+                motherTongue:
+                  type: string
+                  description: Native language code for false friends checks.
+      responses:
+        "200":
+          description: Successful response with check results.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CheckResponse"
+        "400":
+          description: Bad request.
+        "429":
+          description: Rate limit exceeded.
+  /languages:
+    get:
+      summary: List supported languages
+      description: Retrieves a list of all supported languages with codes and names.
+      operationId: listLanguages
+      responses:
+        "200":
+          description: List of supported languages.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Language"
+  /words:
+    get:
+      summary: List personal dictionary words
+      description: Lists words stored in the user's personal dictionaries.
+      operationId: listWords
+      parameters:
+        - name: username
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: apiKey
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: dicts
+          in: query
+          schema:
+            type: string
+          description: Comma-separated list of dictionary names.
+        - name: offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 10
+      responses:
+        "200":
+          description: List of personal dictionary words.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  words:
+                    type: array
+                    items:
+                      type: string
+  /words/add:
+    post:
+      summary: Add a word to a personal dictionary
+      description: >-
+        Adds a single word to a user's personal dictionary. The word must not
+        be a phrase and cannot contain whitespace.
+      operationId: addWord
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+                - word
+                - username
+                - apiKey
+              properties:
+                word:
+                  type: string
+                  description: The word to add.
+                username:
+                  type: string
+                apiKey:
+                  type: string
+                dict:
+                  type: string
+                  description: Optional dictionary name.
+      responses:
+        "200":
+          description: Word added.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  added:
+                    type: boolean
+  /words/delete:
+    post:
+      summary: Delete a word from a personal dictionary
+      operationId: deleteWord
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+                - word
+                - username
+                - apiKey
+              properties:
+                word:
+                  type: string
+                username:
+                  type: string
+                apiKey:
+                  type: string
+                dict:
+                  type: string
+      responses:
+        "200":
+          description: Word deleted.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  deleted:
+                    type: boolean
+components:
+  schemas:
+    Language:
+      type: object
+      properties:
+        name:
+          type: string
+          example: English (US)
+        code:
+          type: string
+          example: en
+        longCode:
+          type: string
+          example: en-US
+    Software:
+      type: object
+      properties:
+        name:
+          type: string
+        version:
+          type: string
+        buildDate:
+          type: string
+        apiVersion:
+          type: integer
+        premium:
+          type: boolean
+        status:
+          type: string
+    DetectedLanguage:
+      type: object
+      properties:
+        name:
+          type: string
+        code:
+          type: string
+        confidence:
+          type: number
+    Replacement:
+      type: object
+      properties:
+        value:
+          type: string
+    Context:
+      type: object
+      properties:
+        text:
+          type: string
+        offset:
+          type: integer
+        length:
+          type: integer
+    Rule:
+      type: object
+      properties:
+        id:
+          type: string
+        subId:
+          type: string
+        description:
+          type: string
+        urls:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+        issueType:
+          type: string
+        category:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+    Match:
+      type: object
+      properties:
+        message:
+          type: string
+        shortMessage:
+          type: string
+        offset:
+          type: integer
+        length:
+          type: integer
+        replacements:
+          type: array
+          items:
+            $ref: "#/components/schemas/Replacement"
+        context:
+          $ref: "#/components/schemas/Context"
+        sentence:
+          type: string
+        type:
+          type: object
+          properties:
+            typeName:
+              type: string
+        rule:
+          $ref: "#/components/schemas/Rule"
+        ignoreForIncompleteSentence:
+          type: boolean
+        contextForSureMatch:
+          type: integer
+    CheckResponse:
+      type: object
+      properties:
+        software:
+          $ref: "#/components/schemas/Software"
+        language:
+          type: object
+          properties:
+            name:
+              type: string
+            code:
+              type: string
+            detectedLanguage:
+              $ref: "#/components/schemas/DetectedLanguage"
+        matches:
+          type: array
+          items:
+            $ref: "#/components/schemas/Match"

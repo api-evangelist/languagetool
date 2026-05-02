@@ -1,38 +1,61 @@
 # LanguageTool (languagetool)
-Check texts for style and grammar issues with LanguageTool. Please consider the following default limitations: 
+
+LanguageTool is an open-source proofreading and grammar checking tool that supports more than 25 languages. The HTTP API enables developers to programmatically check texts for grammar and style issues, list supported languages, and manage personal dictionaries.
 
 **URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/languagetool/refs/heads/main/apis.yml)
 
 ## Scope
 
-- **Type:** Index 
-- **Position:** Consuming 
-- **Access:** 3rd-Party 
+- **Type:** Index
+- **Position:** Consuming
+- **Access:** 3rd-Party
 
-## Tags:
+## Tags
 
- - API
+- Grammar
+- Language
+- Proofreading
+- Spell Check
+- Style Check
+- Text Analysis
 
 ## Timestamps
 
-- **Created:** 2025-02-08 
-- **Modified:** 2026-03-16 
+- **Created:** 2025-02-08
+- **Modified:** 2026-04-28
 
 ## APIs
 
-### LanguageTool
-Check texts for style and grammar issues with LanguageTool. Please consider the following default limitations: 
+### LanguageTool HTTP API
 
-**Human URL:** [ https://languagetool.org/http-api/]( https://languagetool.org/http-api/)
+The LanguageTool HTTP API provides programmatic access to grammar and style checking. The `/check` endpoint analyzes a text in a given language and returns matches with messages, replacements, and rule context. The `/languages` endpoint lists all supported languages, and the `/words` endpoints manage entries in a user's personal dictionaries.
 
+**Human URL:** [https://languagetool.org/http-api/](https://languagetool.org/http-api/)
 
-#### Tags:
+**Base URL:** `https://api.languagetool.org/v2`
 
- - API
+#### Tags
+
+- Grammar
+- Proofreading
+- Spell Check
+- Style Check
 
 #### Properties
 
-- [Documentation]( https://languagetool.org/http-api/)
+- [Documentation](https://languagetool.org/http-api/)
+- [SwaggerUI](https://languagetool.org/http-api/swagger-ui/)
+- [OpenAPI](openapi/languagetool-openapi.yml)
+- [JSONSchema](json-schema/languagetool-match-schema.json)
+
+## Common Properties
+
+- [Website](https://languagetool.org)
+- [Documentation](https://languagetool.org/http-api/)
+- [Developer](https://dev.languagetool.org/)
+- [GitHub](https://github.com/languagetool-org/languagetool)
+- [PrivacyPolicy](https://languagetool.org/legal/privacy)
+- [TermsOfService](https://languagetool.org/legal/terms)
 
 ## Maintainers
 
