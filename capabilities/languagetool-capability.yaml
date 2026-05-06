@@ -1,0 +1,227 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: LanguageTool HTTP API
+  description: LanguageTool checks texts for style and grammar issues. The HTTP API provides programmatic access to grammar
+    checking, language detection, and personal dictionary management.
+  tags:
+  - Languagetool
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: languagetool
+    baseUri: https://api.languagetool.org/v2
+    description: LanguageTool HTTP API HTTP API.
+    resources:
+    - name: check
+      path: /check
+      operations:
+      - name: checktext
+        method: POST
+        description: Check text for grammar and style issues
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: languages
+      path: /languages
+      operations:
+      - name: listlanguages
+        method: GET
+        description: List supported languages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: words
+      path: /words
+      operations:
+      - name: listwords
+        method: GET
+        description: List personal dictionary words
+        inputParameters:
+        - name: username
+          in: query
+          type: string
+          required: true
+        - name: apiKey
+          in: query
+          type: string
+          required: true
+        - name: dicts
+          in: query
+          type: string
+          description: Comma-separated list of dictionary names.
+        - name: offset
+          in: query
+          type: integer
+        - name: limit
+          in: query
+          type: integer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: words-add
+      path: /words/add
+      operations:
+      - name: addword
+        method: POST
+        description: Add a word to a personal dictionary
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: words-delete
+      path: /words/delete
+      operations:
+      - name: deleteword
+        method: POST
+        description: Delete a word from a personal dictionary
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: languagetool-rest
+    description: REST adapter for LanguageTool HTTP API.
+    resources:
+    - path: /check
+      name: checktext
+      operations:
+      - method: POST
+        name: checktext
+        description: Check text for grammar and style issues
+        call: languagetool.checktext
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /languages
+      name: listlanguages
+      operations:
+      - method: GET
+        name: listlanguages
+        description: List supported languages
+        call: languagetool.listlanguages
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /words
+      name: listwords
+      operations:
+      - method: GET
+        name: listwords
+        description: List personal dictionary words
+        call: languagetool.listwords
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /words/add
+      name: addword
+      operations:
+      - method: POST
+        name: addword
+        description: Add a word to a personal dictionary
+        call: languagetool.addword
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /words/delete
+      name: deleteword
+      operations:
+      - method: POST
+        name: deleteword
+        description: Delete a word from a personal dictionary
+        call: languagetool.deleteword
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: languagetool-mcp
+    transport: http
+    description: MCP adapter for LanguageTool HTTP API for AI agent use.
+    tools:
+    - name: checktext
+      description: Check text for grammar and style issues
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: languagetool.checktext
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listlanguages
+      description: List supported languages
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: languagetool.listlanguages
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listwords
+      description: List personal dictionary words
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: languagetool.listwords
+      with:
+        username: tools.username
+        apiKey: tools.apiKey
+        dicts: tools.dicts
+        offset: tools.offset
+        limit: tools.limit
+      inputParameters:
+      - name: username
+        type: string
+        description: username
+        required: true
+      - name: apiKey
+        type: string
+        description: apiKey
+        required: true
+      - name: dicts
+        type: string
+        description: Comma-separated list of dictionary names.
+      - name: offset
+        type: integer
+        description: offset
+      - name: limit
+        type: integer
+        description: limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: addword
+      description: Add a word to a personal dictionary
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: languagetool.addword
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleteword
+      description: Delete a word from a personal dictionary
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: languagetool.deleteword
+      outputParameters:
+      - type: object
+        mapping: $.
