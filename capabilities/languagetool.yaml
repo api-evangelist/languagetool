@@ -1,19 +1,23 @@
 naftiko: 1.0.0-alpha2
 info:
   label: LanguageTool HTTP API
-  description: LanguageTool checks texts for style and grammar issues. The HTTP API provides programmatic access to grammar
-    checking, language detection, and personal dictionary management.
+  description: 'LanguageTool HTTP API. 5 operations. Lead operation: Check text for grammar and style issues. Self-contained
+    Naftiko capability covering one Languagetool business surface.'
   tags:
   - Languagetool
-  - API
-  created: '2026-05-06'
-  modified: '2026-05-06'
+  - LanguageTool HTTP API
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LANGUAGETOOL_API_KEY: LANGUAGETOOL_API_KEY
 capability:
   consumes:
   - type: http
     namespace: languagetool
     baseUri: https://api.languagetool.org/v2
-    description: LanguageTool HTTP API HTTP API.
+    description: LanguageTool HTTP API business capability. Self-contained, no shared references.
     resources:
     - name: check
       path: /check
@@ -26,6 +30,12 @@ capability:
         - name: result
           type: object
           value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
     - name: languages
       path: /languages
       operations:
@@ -43,6 +53,11 @@ capability:
       - name: listwords
         method: GET
         description: List personal dictionary words
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: username
           in: query
@@ -62,11 +77,6 @@ capability:
         - name: limit
           in: query
           type: integer
-        outputRawFormat: json
-        outputParameters:
-        - name: result
-          type: object
-          value: $.
     - name: words-add
       path: /words/add
       operations:
@@ -78,6 +88,12 @@ capability:
         - name: result
           type: object
           value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
     - name: words-delete
       path: /words/delete
       operations:
@@ -89,24 +105,35 @@ capability:
         - name: result
           type: object
           value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
   exposes:
   - type: rest
-    port: 8080
     namespace: languagetool-rest
-    description: REST adapter for LanguageTool HTTP API.
+    port: 8080
+    description: REST adapter for LanguageTool HTTP API. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
     resources:
-    - path: /check
-      name: checktext
+    - path: /v1/check
+      name: check
+      description: REST surface for check.
       operations:
       - method: POST
         name: checktext
         description: Check text for grammar and style issues
         call: languagetool.checktext
+        with:
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /languages
-      name: listlanguages
+    - path: /v1/languages
+      name: languages
+      description: REST surface for languages.
       operations:
       - method: GET
         name: listlanguages
@@ -115,53 +142,69 @@ capability:
         outputParameters:
         - type: object
           mapping: $.
-    - path: /words
-      name: listwords
+    - path: /v1/words
+      name: words
+      description: REST surface for words.
       operations:
       - method: GET
         name: listwords
         description: List personal dictionary words
         call: languagetool.listwords
+        with:
+          username: rest.username
+          apiKey: rest.apiKey
+          dicts: rest.dicts
+          offset: rest.offset
+          limit: rest.limit
         outputParameters:
         - type: object
           mapping: $.
-    - path: /words/add
-      name: addword
+    - path: /v1/words/add
+      name: words-add
+      description: REST surface for words-add.
       operations:
       - method: POST
         name: addword
         description: Add a word to a personal dictionary
         call: languagetool.addword
+        with:
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /words/delete
-      name: deleteword
+    - path: /v1/words/delete
+      name: words-delete
+      description: REST surface for words-delete.
       operations:
       - method: POST
         name: deleteword
         description: Delete a word from a personal dictionary
         call: languagetool.deleteword
+        with:
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
   - type: mcp
-    port: 9090
     namespace: languagetool-mcp
+    port: 9090
     transport: http
-    description: MCP adapter for LanguageTool HTTP API for AI agent use.
+    description: MCP adapter for LanguageTool HTTP API. One tool per consumed operation, routed inline through this capability's
+      consumes block.
     tools:
-    - name: checktext
+    - name: check-text-grammar-and-style
       description: Check text for grammar and style issues
       hints:
-        readOnly: false
+        readOnly: true
         destructive: false
         idempotent: false
       call: languagetool.checktext
+      with:
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: listlanguages
+    - name: list-supported-languages
       description: List supported languages
       hints:
         readOnly: true
@@ -171,7 +214,7 @@ capability:
       outputParameters:
       - type: object
         mapping: $.
-    - name: listwords
+    - name: list-personal-dictionary-words
       description: List personal dictionary words
       hints:
         readOnly: true
@@ -184,44 +227,30 @@ capability:
         dicts: tools.dicts
         offset: tools.offset
         limit: tools.limit
-      inputParameters:
-      - name: username
-        type: string
-        description: username
-        required: true
-      - name: apiKey
-        type: string
-        description: apiKey
-        required: true
-      - name: dicts
-        type: string
-        description: Comma-separated list of dictionary names.
-      - name: offset
-        type: integer
-        description: offset
-      - name: limit
-        type: integer
-        description: limit
       outputParameters:
       - type: object
         mapping: $.
-    - name: addword
+    - name: add-word-personal-dictionary
       description: Add a word to a personal dictionary
       hints:
         readOnly: false
         destructive: false
         idempotent: false
       call: languagetool.addword
+      with:
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: deleteword
+    - name: delete-word-personal-dictionary
       description: Delete a word from a personal dictionary
       hints:
         readOnly: false
         destructive: false
         idempotent: false
       call: languagetool.deleteword
+      with:
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
