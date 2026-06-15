@@ -1,0 +1,1038 @@
+{
+  "item": [
+    {
+      "id": "18ce41fc-92ab-42cd-a783-4fb402efc4eb",
+      "name": "Check text for grammar and style issues",
+      "request": {
+        "name": "Check text for grammar and style issues",
+        "description": {
+          "content": "Checks a text for style and grammar issues. Returns a list of matches with messages, suggested replacements, and rule context.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "check"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "disabled": false,
+              "key": "language",
+              "value": "<string>",
+              "description": "(Required) A language code like en-US, de-DE, or fr. Use auto for automatic language detection."
+            },
+            {
+              "disabled": false,
+              "key": "text",
+              "value": "<string>",
+              "description": "The text to be checked. Either text or data is required."
+            },
+            {
+              "disabled": false,
+              "key": "data",
+              "value": "<string>",
+              "description": "The text to be checked, given as a JSON document containing formatting markup."
+            },
+            {
+              "disabled": false,
+              "key": "username",
+              "value": "<string>",
+              "description": "Username for premium API access."
+            },
+            {
+              "disabled": false,
+              "key": "apiKey",
+              "value": "<string>",
+              "description": "API key for premium API access."
+            },
+            {
+              "disabled": false,
+              "key": "level",
+              "value": "<string>",
+              "description": "Detection level. Use picky for more issues to be detected."
+            },
+            {
+              "disabled": false,
+              "key": "enabledRules",
+              "value": "<string>",
+              "description": "Comma-separated list of rule IDs to enable."
+            },
+            {
+              "disabled": false,
+              "key": "disabledRules",
+              "value": "<string>",
+              "description": "Comma-separated list of rule IDs to disable."
+            },
+            {
+              "disabled": false,
+              "key": "enabledCategories",
+              "value": "<string>",
+              "description": "Comma-separated list of category IDs to enable."
+            },
+            {
+              "disabled": false,
+              "key": "disabledCategories",
+              "value": "<string>",
+              "description": "Comma-separated list of category IDs to disable."
+            },
+            {
+              "disabled": false,
+              "key": "preferredVariants",
+              "value": "<string>",
+              "description": "Preferred language variants (e.g. en-US, de-DE)."
+            },
+            {
+              "disabled": false,
+              "key": "motherTongue",
+              "value": "<string>",
+              "description": "Native language code for false friends checks."
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "f4d570da-da73-48a0-ac26-7a4610b5f38d",
+          "name": "Successful response with check results.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "check"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "(Required) A language code like en-US, de-DE, or fr. Use auto for automatic language detection.",
+                    "type": "text/plain"
+                  },
+                  "key": "language",
+                  "value": "en-US"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "The text to be checked. Either text or data is required.",
+                    "type": "text/plain"
+                  },
+                  "key": "text",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "The text to be checked, given as a JSON document containing formatting markup.",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Username for premium API access.",
+                    "type": "text/plain"
+                  },
+                  "key": "username",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "API key for premium API access.",
+                    "type": "text/plain"
+                  },
+                  "key": "apiKey",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Detection level. Use picky for more issues to be detected.",
+                    "type": "text/plain"
+                  },
+                  "key": "level",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Comma-separated list of rule IDs to enable.",
+                    "type": "text/plain"
+                  },
+                  "key": "enabledRules",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Comma-separated list of rule IDs to disable.",
+                    "type": "text/plain"
+                  },
+                  "key": "disabledRules",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Comma-separated list of category IDs to enable.",
+                    "type": "text/plain"
+                  },
+                  "key": "enabledCategories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Comma-separated list of category IDs to disable.",
+                    "type": "text/plain"
+                  },
+                  "key": "disabledCategories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Preferred language variants (e.g. en-US, de-DE).",
+                    "type": "text/plain"
+                  },
+                  "key": "preferredVariants",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Native language code for false friends checks.",
+                    "type": "text/plain"
+                  },
+                  "key": "motherTongue",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"software\": {\n    \"name\": \"string\",\n    \"version\": \"string\",\n    \"buildDate\": \"string\",\n    \"apiVersion\": 1942,\n    \"premium\": true,\n    \"status\": \"string\"\n  },\n  \"language\": {\n    \"name\": \"string\",\n    \"code\": \"string\",\n    \"detectedLanguage\": {\n      \"name\": \"string\",\n      \"code\": \"string\",\n      \"confidence\": 5473.499398493913\n    }\n  },\n  \"matches\": [\n    {\n      \"message\": \"string\",\n      \"shortMessage\": \"string\",\n      \"offset\": 1244,\n      \"length\": 682,\n      \"replacements\": [\n        {\n          \"value\": \"string\"\n        },\n        {\n          \"value\": \"string\"\n        }\n      ],\n      \"context\": {\n        \"text\": \"string\",\n        \"offset\": 1220,\n        \"length\": 3795\n      },\n      \"sentence\": \"string\",\n      \"type\": {\n        \"typeName\": \"string\"\n      },\n      \"rule\": {\n        \"id\": \"string\",\n        \"subId\": \"string\",\n        \"description\": \"string\",\n        \"urls\": [\n          {\n            \"value\": \"string\"\n          },\n          {\n            \"value\": \"string\"\n          }\n        ],\n        \"issueType\": \"string\",\n        \"category\": {\n          \"id\": \"string\",\n          \"name\": \"string\"\n        }\n      },\n      \"ignoreForIncompleteSentence\": true,\n      \"contextForSureMatch\": 3245\n    },\n    {\n      \"message\": \"string\",\n      \"shortMessage\": \"string\",\n      \"offset\": 7026,\n      \"length\": 7356,\n      \"replacements\": [\n        {\n          \"value\": \"string\"\n        },\n        {\n          \"value\": \"string\"\n        }\n      ],\n      \"context\": {\n        \"text\": \"string\",\n        \"offset\": 8676,\n        \"length\": 6731\n      },\n      \"sentence\": \"string\",\n      \"type\": {\n        \"typeName\": \"string\"\n      },\n      \"rule\": {\n        \"id\": \"string\",\n        \"subId\": \"string\",\n        \"description\": \"string\",\n        \"urls\": [\n          {\n            \"value\": \"string\"\n          },\n          {\n            \"value\": \"string\"\n          }\n        ],\n        \"issueType\": \"string\",\n        \"category\": {\n          \"id\": \"string\",\n          \"name\": \"string\"\n        }\n      },\n      \"ignoreForIncompleteSentence\": true,\n      \"contextForSureMatch\": 7655\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "4996aaee-3e17-45cf-b2aa-d3b3760a3d47",
+          "name": "Bad request.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "check"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "(Required) A language code like en-US, de-DE, or fr. Use auto for automatic language detection.",
+                    "type": "text/plain"
+                  },
+                  "key": "language",
+                  "value": "en-US"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "The text to be checked. Either text or data is required.",
+                    "type": "text/plain"
+                  },
+                  "key": "text",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "The text to be checked, given as a JSON document containing formatting markup.",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Username for premium API access.",
+                    "type": "text/plain"
+                  },
+                  "key": "username",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "API key for premium API access.",
+                    "type": "text/plain"
+                  },
+                  "key": "apiKey",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Detection level. Use picky for more issues to be detected.",
+                    "type": "text/plain"
+                  },
+                  "key": "level",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Comma-separated list of rule IDs to enable.",
+                    "type": "text/plain"
+                  },
+                  "key": "enabledRules",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Comma-separated list of rule IDs to disable.",
+                    "type": "text/plain"
+                  },
+                  "key": "disabledRules",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Comma-separated list of category IDs to enable.",
+                    "type": "text/plain"
+                  },
+                  "key": "enabledCategories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Comma-separated list of category IDs to disable.",
+                    "type": "text/plain"
+                  },
+                  "key": "disabledCategories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Preferred language variants (e.g. en-US, de-DE).",
+                    "type": "text/plain"
+                  },
+                  "key": "preferredVariants",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Native language code for false friends checks.",
+                    "type": "text/plain"
+                  },
+                  "key": "motherTongue",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "9850ee7d-bc6f-4188-91e6-aecc77b02f1c",
+          "name": "Rate limit exceeded.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "check"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "(Required) A language code like en-US, de-DE, or fr. Use auto for automatic language detection.",
+                    "type": "text/plain"
+                  },
+                  "key": "language",
+                  "value": "en-US"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "The text to be checked. Either text or data is required.",
+                    "type": "text/plain"
+                  },
+                  "key": "text",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "The text to be checked, given as a JSON document containing formatting markup.",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Username for premium API access.",
+                    "type": "text/plain"
+                  },
+                  "key": "username",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "API key for premium API access.",
+                    "type": "text/plain"
+                  },
+                  "key": "apiKey",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Detection level. Use picky for more issues to be detected.",
+                    "type": "text/plain"
+                  },
+                  "key": "level",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Comma-separated list of rule IDs to enable.",
+                    "type": "text/plain"
+                  },
+                  "key": "enabledRules",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Comma-separated list of rule IDs to disable.",
+                    "type": "text/plain"
+                  },
+                  "key": "disabledRules",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Comma-separated list of category IDs to enable.",
+                    "type": "text/plain"
+                  },
+                  "key": "enabledCategories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Comma-separated list of category IDs to disable.",
+                    "type": "text/plain"
+                  },
+                  "key": "disabledCategories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Preferred language variants (e.g. en-US, de-DE).",
+                    "type": "text/plain"
+                  },
+                  "key": "preferredVariants",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Native language code for false friends checks.",
+                    "type": "text/plain"
+                  },
+                  "key": "motherTongue",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "status": "Too Many Requests",
+          "code": 429,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "f9c3e053-b588-48ce-83f9-f08f8f6a2312",
+      "name": "List supported languages",
+      "request": {
+        "name": "List supported languages",
+        "description": {
+          "content": "Retrieves a list of all supported languages with codes and names.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "languages"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "d18bba44-9752-457b-88ce-7a9ed93bbef5",
+          "name": "List of supported languages.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "languages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "[\n  {\n    \"name\": \"English (US)\",\n    \"code\": \"en\",\n    \"longCode\": \"en-US\"\n  },\n  {\n    \"name\": \"English (US)\",\n    \"code\": \"en\",\n    \"longCode\": \"en-US\"\n  }\n]",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "8bc160d4-9ad2-4402-9530-4587ce6bcb71",
+      "name": "List personal dictionary words",
+      "request": {
+        "name": "List personal dictionary words",
+        "description": {
+          "content": "Lists words stored in the user's personal dictionaries.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "words"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "username",
+              "value": "<string>",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "key": "apiKey",
+              "value": "<string>",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "key": "dicts",
+              "value": "<string>",
+              "description": "Comma-separated list of dictionary names."
+            },
+            {
+              "disabled": false,
+              "key": "offset",
+              "value": "0"
+            },
+            {
+              "disabled": false,
+              "key": "limit",
+              "value": "10"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "20aa975d-e1d3-4e56-b18b-2b0b61dda773",
+          "name": "List of personal dictionary words.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "words"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "username",
+                  "value": "<string>"
+                },
+                {
+                  "key": "apiKey",
+                  "value": "<string>"
+                },
+                {
+                  "key": "dicts",
+                  "value": "<string>"
+                },
+                {
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"words\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "055e439d-9a21-4ea3-a11b-635207748319",
+      "name": "Add a word to a personal dictionary",
+      "request": {
+        "name": "Add a word to a personal dictionary",
+        "description": {
+          "content": "Adds a single word to a user's personal dictionary. The word must not be a phrase and cannot contain whitespace.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "words",
+            "add"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "disabled": false,
+              "key": "word",
+              "value": "<string>",
+              "description": "(Required) The word to add."
+            },
+            {
+              "disabled": false,
+              "key": "username",
+              "value": "<string>",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "key": "apiKey",
+              "value": "<string>",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "key": "dict",
+              "value": "<string>",
+              "description": "Optional dictionary name."
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "75edb412-e715-4998-b322-7b2fadb66acf",
+          "name": "Word added.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "words",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "(Required) The word to add.",
+                    "type": "text/plain"
+                  },
+                  "key": "word",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "(Required) ",
+                    "type": "text/plain"
+                  },
+                  "key": "username",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "(Required) ",
+                    "type": "text/plain"
+                  },
+                  "key": "apiKey",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Optional dictionary name.",
+                    "type": "text/plain"
+                  },
+                  "key": "dict",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"added\": false\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "764123d8-28d7-4f24-8a56-4afcd21999fd",
+      "name": "Delete a word from a personal dictionary",
+      "request": {
+        "name": "Delete a word from a personal dictionary",
+        "description": {},
+        "url": {
+          "path": [
+            "words",
+            "delete"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "disabled": false,
+              "key": "word",
+              "value": "<string>",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "key": "username",
+              "value": "<string>",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "key": "apiKey",
+              "value": "<string>",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "key": "dict",
+              "value": "<string>"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "3fa912c8-cf50-49e6-a917-0c8799307fea",
+          "name": "Word deleted.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "words",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "(Required) ",
+                    "type": "text/plain"
+                  },
+                  "key": "word",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "(Required) ",
+                    "type": "text/plain"
+                  },
+                  "key": "username",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "(Required) ",
+                    "type": "text/plain"
+                  },
+                  "key": "apiKey",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dict",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"deleted\": false\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.languagetool.org/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "69eab7a6-f471-461c-8388-e3ff16eded66",
+    "name": "LanguageTool HTTP API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "LanguageTool checks texts for style and grammar issues. The HTTP API provides programmatic access to grammar checking, language detection, and personal dictionary management.\n\nContact Support:\n Name: LanguageTool",
+      "type": "text/plain"
+    }
+  }
+}
