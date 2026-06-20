@@ -7,7 +7,7 @@ description: >-
 type: Index
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Grammar
   - Language
@@ -26,7 +26,7 @@ apis:
       The LanguageTool HTTP API provides programmatic access to grammar and style checking. The /check endpoint analyzes
       a text in a given language and returns matches with messages, replacements, and rule context. The /languages
       endpoint lists all supported languages, and the /words endpoints manage entries in a user's personal dictionaries.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://languagetool.org/http-api/
     baseURL: https://api.languagetool.org/v2
     tags:
