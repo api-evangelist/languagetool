@@ -44,6 +44,8 @@ apis:
       - type: JSONSchema
         url: json-schema/languagetool-match-schema.json
 common:
+  - type: DomainSecurity
+    url: security/languagetool-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/languagetool
   - type: Website
