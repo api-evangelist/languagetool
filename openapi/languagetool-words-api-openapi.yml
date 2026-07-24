@@ -1,0 +1,137 @@
+openapi: 3.0.3
+info:
+  title: LanguageTool HTTP Check Words API
+  description: LanguageTool checks texts for style and grammar issues. The HTTP API provides programmatic access to grammar checking, language detection, and personal dictionary management.
+  version: '1.0'
+  contact:
+    name: LanguageTool
+    url: https://languagetool.org/http-api/
+  license:
+    name: LGPL-2.1
+    url: https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+servers:
+- url: https://api.languagetool.org/v2
+  description: Public LanguageTool API
+- url: https://api.languagetoolplus.com/v2
+  description: LanguageTool Plus (Premium) API
+tags:
+- name: Words
+paths:
+  /words:
+    get:
+      summary: List personal dictionary words
+      description: Lists words stored in the user's personal dictionaries.
+      operationId: listWords
+      parameters:
+      - name: username
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: apiKey
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: dicts
+        in: query
+        schema:
+          type: string
+        description: Comma-separated list of dictionary names.
+      - name: offset
+        in: query
+        schema:
+          type: integer
+          default: 0
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          default: 10
+      responses:
+        '200':
+          description: List of personal dictionary words.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  words:
+                    type: array
+                    items:
+                      type: string
+      tags:
+      - Words
+  /words/add:
+    post:
+      summary: Add a word to a personal dictionary
+      description: Adds a single word to a user's personal dictionary. The word must not be a phrase and cannot contain whitespace.
+      operationId: addWord
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - word
+              - username
+              - apiKey
+              properties:
+                word:
+                  type: string
+                  description: The word to add.
+                username:
+                  type: string
+                apiKey:
+                  type: string
+                dict:
+                  type: string
+                  description: Optional dictionary name.
+      responses:
+        '200':
+          description: Word added.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  added:
+                    type: boolean
+      tags:
+      - Words
+  /words/delete:
+    post:
+      summary: Delete a word from a personal dictionary
+      operationId: deleteWord
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - word
+              - username
+              - apiKey
+              properties:
+                word:
+                  type: string
+                username:
+                  type: string
+                apiKey:
+                  type: string
+                dict:
+                  type: string
+      responses:
+        '200':
+          description: Word deleted.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  deleted:
+                    type: boolean
+      tags:
+      - Words

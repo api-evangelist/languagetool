@@ -1,0 +1,49 @@
+openapi: 3.0.3
+info:
+  title: LanguageTool HTTP Check Languages API
+  description: LanguageTool checks texts for style and grammar issues. The HTTP API provides programmatic access to grammar checking, language detection, and personal dictionary management.
+  version: '1.0'
+  contact:
+    name: LanguageTool
+    url: https://languagetool.org/http-api/
+  license:
+    name: LGPL-2.1
+    url: https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+servers:
+- url: https://api.languagetool.org/v2
+  description: Public LanguageTool API
+- url: https://api.languagetoolplus.com/v2
+  description: LanguageTool Plus (Premium) API
+tags:
+- name: Languages
+paths:
+  /languages:
+    get:
+      summary: List supported languages
+      description: Retrieves a list of all supported languages with codes and names.
+      operationId: listLanguages
+      responses:
+        '200':
+          description: List of supported languages.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Language'
+      tags:
+      - Languages
+components:
+  schemas:
+    Language:
+      type: object
+      properties:
+        name:
+          type: string
+          example: English (US)
+        code:
+          type: string
+          example: en
+        longCode:
+          type: string
+          example: en-US
