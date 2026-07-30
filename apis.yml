@@ -5,9 +5,21 @@ description: >-
   API enables developers to programmatically check texts for grammar and style issues, list supported languages, and
   manage personal dictionaries.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/languagetool.png
 tags:
   - Grammar
   - Language
@@ -20,29 +32,54 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/languagetool/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: languagetool:languagetool
-    name: LanguageTool HTTP API
-    description: >-
-      The LanguageTool HTTP API provides programmatic access to grammar and style checking. The /check endpoint analyzes
-      a text in a given language and returns matches with messages, replacements, and rule context. The /languages
-      endpoint lists all supported languages, and the /words endpoints manage entries in a user's personal dictionaries.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://languagetool.org/http-api/
-    baseURL: https://api.languagetool.org/v2
-    tags:
-      - Grammar
-      - Proofreading
-      - Spell Check
-      - Style Check
-    properties:
-      - type: Documentation
-        url: https://languagetool.org/http-api/
-      - type: SwaggerUI
-        url: https://languagetool.org/http-api/swagger-ui/
-      - type: OpenAPI
-        url: openapi/languagetool-openapi.yml
-      - type: JSONSchema
-        url: json-schema/languagetool-match-schema.json
+- aid: languagetool:languagetool-check-api
+  name: LanguageTool Check API
+  description: The Check API from LanguageTool — 1 operation(s) for check.
+  humanURL: https://languagetool.org/http-api/
+  baseURL: https://api.languagetool.org/v2
+  tags:
+  - Check
+  properties:
+  - type: OpenAPI
+    url: openapi/languagetool-check-api-openapi.yml
+  - type: Documentation
+    url: https://languagetool.org/http-api/
+  - type: SwaggerUI
+    url: https://languagetool.org/http-api/swagger-ui/
+  - type: JSONSchema
+    url: json-schema/languagetool-match-schema.json
+- aid: languagetool:languagetool-languages-api
+  name: LanguageTool Languages API
+  description: The Languages API from LanguageTool — 1 operation(s) for languages.
+  humanURL: https://languagetool.org/http-api/
+  baseURL: https://api.languagetool.org/v2
+  tags:
+  - Languages
+  properties:
+  - type: OpenAPI
+    url: openapi/languagetool-languages-api-openapi.yml
+  - type: Documentation
+    url: https://languagetool.org/http-api/
+  - type: SwaggerUI
+    url: https://languagetool.org/http-api/swagger-ui/
+  - type: JSONSchema
+    url: json-schema/languagetool-match-schema.json
+- aid: languagetool:languagetool-words-api
+  name: LanguageTool Words API
+  description: The Words API from LanguageTool — 3 operation(s) for words.
+  humanURL: https://languagetool.org/http-api/
+  baseURL: https://api.languagetool.org/v2
+  tags:
+  - Words
+  properties:
+  - type: OpenAPI
+    url: openapi/languagetool-words-api-openapi.yml
+  - type: Documentation
+    url: https://languagetool.org/http-api/
+  - type: SwaggerUI
+    url: https://languagetool.org/http-api/swagger-ui/
+  - type: JSONSchema
+    url: json-schema/languagetool-match-schema.json
 common:
   - type: AgenticAccess
     url: agentic-access/languagetool-agentic-access.yml
