@@ -1,0 +1,18 @@
+{
+  "provider": "languagetool",
+  "sources": [
+    "languagetool-check-api-openapi.yml",
+    "languagetool-languages-api-openapi.yml",
+    "languagetool-words-api-openapi.yml"
+  ],
+  "outputs": [
+    "languagetool-check-api-openapi.yml",
+    "languagetool-languages-api-openapi.yml",
+    "languagetool-words-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
