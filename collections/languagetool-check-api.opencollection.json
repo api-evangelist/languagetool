@@ -1,0 +1,82 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "LanguageTool HTTP Check API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Check",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check text for grammar and style issues",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.languagetool.org/v2/check",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "text",
+                  "value": ""
+                },
+                {
+                  "name": "data",
+                  "value": ""
+                },
+                {
+                  "name": "language",
+                  "value": ""
+                },
+                {
+                  "name": "username",
+                  "value": ""
+                },
+                {
+                  "name": "apiKey",
+                  "value": ""
+                },
+                {
+                  "name": "level",
+                  "value": ""
+                },
+                {
+                  "name": "enabledRules",
+                  "value": ""
+                },
+                {
+                  "name": "disabledRules",
+                  "value": ""
+                },
+                {
+                  "name": "enabledCategories",
+                  "value": ""
+                },
+                {
+                  "name": "disabledCategories",
+                  "value": ""
+                },
+                {
+                  "name": "preferredVariants",
+                  "value": ""
+                },
+                {
+                  "name": "motherTongue",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Checks a text for style and grammar issues. Returns a list of matches with messages, suggested replacements, and rule context."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
