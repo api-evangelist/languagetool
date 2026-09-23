@@ -1,9 +1,7 @@
 {
   "provider": "languagetool",
   "sources": [
-    "languagetool-check-api-openapi.yml",
-    "languagetool-languages-api-openapi.yml",
-    "languagetool-words-api-openapi.yml"
+    "_original/languagetool-openapi.yml"
   ],
   "outputs": [
     "languagetool-check-api-openapi.yml",
@@ -13,6 +11,22 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "languagetool-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "languagetool-openapi.yml: tagged paths POST /check -> Check",
+    "languagetool-openapi.yml: tagged paths GET /languages -> Languages",
+    "languagetool-openapi.yml: tagged paths GET /words -> Words",
+    "languagetool-openapi.yml: tagged paths POST /words/add -> Words",
+    "languagetool-openapi.yml: tagged paths POST /words/delete -> Words",
+    "languagetool-openapi.yml: declared missing tag: Check",
+    "languagetool-openapi.yml: declared missing tag: Languages",
+    "languagetool-openapi.yml: declared missing tag: Words",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "languagetool-check-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "languagetool-languages-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "languagetool-words-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

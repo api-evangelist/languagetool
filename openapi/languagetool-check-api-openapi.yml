@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: LanguageTool HTTP Check API
   description: LanguageTool checks texts for style and grammar issues. The HTTP API provides programmatic access to grammar checking, language detection, and personal dictionary management.
@@ -86,20 +86,6 @@ paths:
       - Check
 components:
   schemas:
-    Context:
-      type: object
-      properties:
-        text:
-          type: string
-        offset:
-          type: integer
-        length:
-          type: integer
-    Replacement:
-      type: object
-      properties:
-        value:
-          type: string
     CheckResponse:
       type: object
       properties:
@@ -118,46 +104,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Match'
-    Software:
-      type: object
-      properties:
-        name:
-          type: string
-        version:
-          type: string
-        buildDate:
-          type: string
-        apiVersion:
-          type: integer
-        premium:
-          type: boolean
-        status:
-          type: string
-    Rule:
-      type: object
-      properties:
-        id:
-          type: string
-        subId:
-          type: string
-        description:
-          type: string
-        urls:
-          type: array
-          items:
-            type: object
-            properties:
-              value:
-                type: string
-        issueType:
-          type: string
-        category:
-          type: object
-          properties:
-            id:
-              type: string
-            name:
-              type: string
     Match:
       type: object
       properties:
@@ -188,6 +134,30 @@ components:
           type: boolean
         contextForSureMatch:
           type: integer
+    Context:
+      type: object
+      properties:
+        text:
+          type: string
+        offset:
+          type: integer
+        length:
+          type: integer
+    Software:
+      type: object
+      properties:
+        name:
+          type: string
+        version:
+          type: string
+        buildDate:
+          type: string
+        apiVersion:
+          type: integer
+        premium:
+          type: boolean
+        status:
+          type: string
     DetectedLanguage:
       type: object
       properties:
@@ -197,3 +167,33 @@ components:
           type: string
         confidence:
           type: number
+    Rule:
+      type: object
+      properties:
+        id:
+          type: string
+        subId:
+          type: string
+        description:
+          type: string
+        urls:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+        issueType:
+          type: string
+        category:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+    Replacement:
+      type: object
+      properties:
+        value:
+          type: string
