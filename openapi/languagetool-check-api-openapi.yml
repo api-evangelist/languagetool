@@ -86,54 +86,11 @@ paths:
       - Check
 components:
   schemas:
-    CheckResponse:
+    Replacement:
       type: object
       properties:
-        software:
-          $ref: '#/components/schemas/Software'
-        language:
-          type: object
-          properties:
-            name:
-              type: string
-            code:
-              type: string
-            detectedLanguage:
-              $ref: '#/components/schemas/DetectedLanguage'
-        matches:
-          type: array
-          items:
-            $ref: '#/components/schemas/Match'
-    Match:
-      type: object
-      properties:
-        message:
+        value:
           type: string
-        shortMessage:
-          type: string
-        offset:
-          type: integer
-        length:
-          type: integer
-        replacements:
-          type: array
-          items:
-            $ref: '#/components/schemas/Replacement'
-        context:
-          $ref: '#/components/schemas/Context'
-        sentence:
-          type: string
-        type:
-          type: object
-          properties:
-            typeName:
-              type: string
-        rule:
-          $ref: '#/components/schemas/Rule'
-        ignoreForIncompleteSentence:
-          type: boolean
-        contextForSureMatch:
-          type: integer
     Context:
       type: object
       properties:
@@ -192,8 +149,51 @@ components:
               type: string
             name:
               type: string
-    Replacement:
+    CheckResponse:
       type: object
       properties:
-        value:
+        software:
+          $ref: '#/components/schemas/Software'
+        language:
+          type: object
+          properties:
+            name:
+              type: string
+            code:
+              type: string
+            detectedLanguage:
+              $ref: '#/components/schemas/DetectedLanguage'
+        matches:
+          type: array
+          items:
+            $ref: '#/components/schemas/Match'
+    Match:
+      type: object
+      properties:
+        message:
           type: string
+        shortMessage:
+          type: string
+        offset:
+          type: integer
+        length:
+          type: integer
+        replacements:
+          type: array
+          items:
+            $ref: '#/components/schemas/Replacement'
+        context:
+          $ref: '#/components/schemas/Context'
+        sentence:
+          type: string
+        type:
+          type: object
+          properties:
+            typeName:
+              type: string
+        rule:
+          $ref: '#/components/schemas/Rule'
+        ignoreForIncompleteSentence:
+          type: boolean
+        contextForSureMatch:
+          type: integer
