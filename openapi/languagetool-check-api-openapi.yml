@@ -86,20 +86,6 @@ paths:
       - Check
 components:
   schemas:
-    Replacement:
-      type: object
-      properties:
-        value:
-          type: string
-    Context:
-      type: object
-      properties:
-        text:
-          type: string
-        offset:
-          type: integer
-        length:
-          type: integer
     Software:
       type: object
       properties:
@@ -115,15 +101,11 @@ components:
           type: boolean
         status:
           type: string
-    DetectedLanguage:
+    Replacement:
       type: object
       properties:
-        name:
+        value:
           type: string
-        code:
-          type: string
-        confidence:
-          type: number
     Rule:
       type: object
       properties:
@@ -149,24 +131,6 @@ components:
               type: string
             name:
               type: string
-    CheckResponse:
-      type: object
-      properties:
-        software:
-          $ref: '#/components/schemas/Software'
-        language:
-          type: object
-          properties:
-            name:
-              type: string
-            code:
-              type: string
-            detectedLanguage:
-              $ref: '#/components/schemas/DetectedLanguage'
-        matches:
-          type: array
-          items:
-            $ref: '#/components/schemas/Match'
     Match:
       type: object
       properties:
@@ -197,3 +161,39 @@ components:
           type: boolean
         contextForSureMatch:
           type: integer
+    Context:
+      type: object
+      properties:
+        text:
+          type: string
+        offset:
+          type: integer
+        length:
+          type: integer
+    CheckResponse:
+      type: object
+      properties:
+        software:
+          $ref: '#/components/schemas/Software'
+        language:
+          type: object
+          properties:
+            name:
+              type: string
+            code:
+              type: string
+            detectedLanguage:
+              $ref: '#/components/schemas/DetectedLanguage'
+        matches:
+          type: array
+          items:
+            $ref: '#/components/schemas/Match'
+    DetectedLanguage:
+      type: object
+      properties:
+        name:
+          type: string
+        code:
+          type: string
+        confidence:
+          type: number
