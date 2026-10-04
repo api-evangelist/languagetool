@@ -86,51 +86,47 @@ paths:
       - Check
 components:
   schemas:
-    Software:
+    CheckResponse:
+      type: object
+      properties:
+        software:
+          $ref: '#/components/schemas/Software'
+        language:
+          type: object
+          properties:
+            name:
+              type: string
+            code:
+              type: string
+            detectedLanguage:
+              $ref: '#/components/schemas/DetectedLanguage'
+        matches:
+          type: array
+          items:
+            $ref: '#/components/schemas/Match'
+    DetectedLanguage:
       type: object
       properties:
         name:
           type: string
-        version:
+        code:
           type: string
-        buildDate:
+        confidence:
+          type: number
+    Context:
+      type: object
+      properties:
+        text:
           type: string
-        apiVersion:
+        offset:
           type: integer
-        premium:
-          type: boolean
-        status:
-          type: string
+        length:
+          type: integer
     Replacement:
       type: object
       properties:
         value:
           type: string
-    Rule:
-      type: object
-      properties:
-        id:
-          type: string
-        subId:
-          type: string
-        description:
-          type: string
-        urls:
-          type: array
-          items:
-            type: object
-            properties:
-              value:
-                type: string
-        issueType:
-          type: string
-        category:
-          type: object
-          properties:
-            id:
-              type: string
-            name:
-              type: string
     Match:
       type: object
       properties:
@@ -161,39 +157,43 @@ components:
           type: boolean
         contextForSureMatch:
           type: integer
-    Context:
+    Rule:
       type: object
       properties:
-        text:
+        id:
           type: string
-        offset:
-          type: integer
-        length:
-          type: integer
-    CheckResponse:
-      type: object
-      properties:
-        software:
-          $ref: '#/components/schemas/Software'
-        language:
-          type: object
-          properties:
-            name:
-              type: string
-            code:
-              type: string
-            detectedLanguage:
-              $ref: '#/components/schemas/DetectedLanguage'
-        matches:
+        subId:
+          type: string
+        description:
+          type: string
+        urls:
           type: array
           items:
-            $ref: '#/components/schemas/Match'
-    DetectedLanguage:
+            type: object
+            properties:
+              value:
+                type: string
+        issueType:
+          type: string
+        category:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+    Software:
       type: object
       properties:
         name:
           type: string
-        code:
+        version:
           type: string
-        confidence:
-          type: number
+        buildDate:
+          type: string
+        apiVersion:
+          type: integer
+        premium:
+          type: boolean
+        status:
+          type: string
