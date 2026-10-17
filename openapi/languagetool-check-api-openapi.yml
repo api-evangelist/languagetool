@@ -86,6 +86,21 @@ paths:
       - Check
 components:
   schemas:
+    Software:
+      type: object
+      properties:
+        name:
+          type: string
+        version:
+          type: string
+        buildDate:
+          type: string
+        apiVersion:
+          type: integer
+        premium:
+          type: boolean
+        status:
+          type: string
     CheckResponse:
       type: object
       properties:
@@ -122,6 +137,31 @@ components:
           type: integer
         length:
           type: integer
+    Rule:
+      type: object
+      properties:
+        id:
+          type: string
+        subId:
+          type: string
+        description:
+          type: string
+        urls:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+        issueType:
+          type: string
+        category:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
     Replacement:
       type: object
       properties:
@@ -157,43 +197,3 @@ components:
           type: boolean
         contextForSureMatch:
           type: integer
-    Rule:
-      type: object
-      properties:
-        id:
-          type: string
-        subId:
-          type: string
-        description:
-          type: string
-        urls:
-          type: array
-          items:
-            type: object
-            properties:
-              value:
-                type: string
-        issueType:
-          type: string
-        category:
-          type: object
-          properties:
-            id:
-              type: string
-            name:
-              type: string
-    Software:
-      type: object
-      properties:
-        name:
-          type: string
-        version:
-          type: string
-        buildDate:
-          type: string
-        apiVersion:
-          type: integer
-        premium:
-          type: boolean
-        status:
-          type: string
