@@ -104,3 +104,45 @@
     detected: '2026-10-22'
   status: not-a-workflow
   arazzo: null
+- slug: languagetool-apis-guru-openapi-directory
+  label: APIs.guru OpenAPI Directory
+  partner: apis-guru
+  partner_name: APIs.guru OpenAPI Directory
+  category: API definition directory listing (OpenAPI)
+  type: register
+  channel: standard-directory
+  evidence: https://apis.guru/
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: APIs.guru OpenAPI Directory
+    spec_file: null
+    standard: APIs.guru OpenAPI Directory
+    role: listed-in-directory
+    directory_provider: languagetool.org
+    matched_domain: languagetool.org
+    matched_by: domain
+    apis_listed: 1
+    version_count: 1
+    first_added: '2018-11-15'
+    last_updated: '2023-03-06'
+    origin_publisher_hosted: true
+    origin_hosts:
+    - languagetool.org
+    categories:
+    - text
+    own_openapi_files: 3
+    listings:
+    - key: languagetool.org
+      title: LanguageTool API
+      preferred: 1.1.2
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/languagetool.org/1.1.2/swagger.json
+      origin_url: https://languagetool.org/http-api/languagetool-swagger.json
+      openapi_version: '2.0'
+    signal_note: 'participation only: a community directory listing (APIs.guru collects definitions; the provider
+      did not file them). Signals: version_count, apis_listed, origin_publisher_hosted.'
+    detected_by: sweep-openapi-directory-apis-guru.py
+    detected: '2026-10-22'
+  status: not-a-workflow
+  arazzo: null

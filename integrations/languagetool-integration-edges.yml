@@ -114,6 +114,47 @@ edges:
   apps:
   - LanguageTool Integration
   - LanguageTool
+- partner_name: APIs.guru OpenAPI Directory
+  partner: apis-guru
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: third-party
+  evidence: https://apis.guru/
+  category: API definition directory listing (OpenAPI)
+  contract_reference:
+    register: APIs.guru OpenAPI Directory
+    spec_file: null
+    standard: APIs.guru OpenAPI Directory
+    role: listed-in-directory
+    directory_provider: languagetool.org
+    matched_domain: languagetool.org
+    matched_by: domain
+    apis_listed: 1
+    version_count: 1
+    first_added: '2018-11-15'
+    last_updated: '2023-03-06'
+    origin_publisher_hosted: true
+    origin_hosts:
+    - languagetool.org
+    categories:
+    - text
+    own_openapi_files: 3
+    listings:
+    - key: languagetool.org
+      title: LanguageTool API
+      preferred: 1.1.2
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/languagetool.org/1.1.2/swagger.json
+      origin_url: https://languagetool.org/http-api/languagetool-swagger.json
+      openapi_version: '2.0'
+    signal_note: 'participation only: a community directory listing (APIs.guru collects definitions; the provider
+      did not file them). Signals: version_count, apis_listed, origin_publisher_hosted.'
+    detected_by: sweep-openapi-directory-apis-guru.py
+    detected: '2026-10-22'
+  detected_by: sweep-openapi-directory-apis-guru.py
+  first_seen: '2026-10-22'
 generated: '2026-10-21'
 method: searched
 source:
@@ -130,3 +171,5 @@ checked:
 - https://raw.githubusercontent.com/<repo>/HEAD/manifest.json
 - https://raw.githubusercontent.com/obsidianmd/obsidian-releases/793b52114f54b055b760ef47761ec5c93d689804/community-plugin-stats.json
 - https://raw.githubusercontent.com/obsidianmd/obsidian-releases/793b52114f54b055b760ef47761ec5c93d689804/community-plugins.json
+- https://api.apis.guru/v2/list.json
+- https://api.apis.guru/v2/providers.json
