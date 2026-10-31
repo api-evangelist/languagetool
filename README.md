@@ -1,4 +1,4 @@
-# LanguageTool (languagetool)
+# LanguageTool
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,64 +66,131 @@
 
 LanguageTool is an open-source proofreading and grammar checking tool that supports more than 25 languages. The HTTP API enables developers to programmatically check texts for grammar and style issues, list supported languages, and manage personal dictionaries.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/languagetool/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/languagetool/refs/heads/main/apis.yml)
+**Areas:** Grammar · Language · Proofreading · Spell Check · Style Check · Text Analysis
 
-## Scope
+## LanguageTool on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for LanguageTool is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/languagetool/](https://apis.io/providers/languagetool/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (3)
 
-- Grammar
-- Language
-- Proofreading
-- Spell Check
-- Style Check
-- Text Analysis
+- [LanguageTool Check API](https://apis.io/apis/languagetool/languagetool-check-api/) — The Check API from LanguageTool — 1 operation(s) for check.
+- [LanguageTool Languages API](https://apis.io/apis/languagetool/languagetool-languages-api/) — The Languages API from LanguageTool — 1 operation(s) for languages.
+- [LanguageTool Words API](https://apis.io/apis/languagetool/languagetool-words-api/) — The Words API from LanguageTool — 3 operation(s) for words.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-02-08
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### LanguageTool HTTP API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The LanguageTool HTTP API provides programmatic access to grammar and style checking. The /check endpoint analyzes a text in a given language and returns matches with messages, replacements, and rule context. The /languages endpoint lists all supported languages, and the /words endpoints manage entries in a user's personal dictionaries.
+- [Languagetool Agentic Access](https://apis.io/agentic-access/languagetool/languagetool-agentic-access/)
 
-- **Human URL:** [https://languagetool.org/http-api/](https://languagetool.org/http-api/)
-- **Base URL:** `https://api.languagetool.org/v2`
+#### JSON Schema (1)
 
-#### Tags
+The data models the API reads and writes.
 
-- Grammar
-- Proofreading
-- Spell Check
-- Style Check
+- [LanguageTool Match](https://apis.io/schemas/languagetool/languagetool-match/)
 
-#### Properties
+#### Collections (4)
 
-- [Documentation](https://languagetool.org/http-api/)
-- [Swagger U I](https://languagetool.org/http-api/swagger-ui/)
-- [OpenAPI](openapi/languagetool-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/languagetool.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/languagetool.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/languagetool-match-schema.json) — [JSON Schema](https://json-schema.org/specification)
+Postman and Open Collection request collections.
 
-## Common Properties
+- [LanguageTool HTTP API](https://apis.io/collections/languagetool/open-languagetool/)
+- [LanguageTool HTTP Check API](https://apis.io/collections/languagetool/open-languagetool-check-api/)
+- [LanguageTool HTTP Check Languages API](https://apis.io/collections/languagetool/open-languagetool-languages-api/)
+- [LanguageTool HTTP Check Words API](https://apis.io/collections/languagetool/open-languagetool-words-api/)
 
-- [LinkedIn](https://www.linkedin.com/company/languagetool)
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [LanguageTool — jsonschema rules](https://apis.io/rules/languagetool/languagetool-jsonschema-spectral-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Languagetool Domain Security](https://apis.io/security/languagetool/languagetool-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Languagetool Plans Pricing](https://apis.io/plans/languagetool/languagetool-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Languagetool Rate Limits](https://apis.io/rate-limits/languagetool/languagetool-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Languagetool Finops](https://apis.io/finops/languagetool/languagetool-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://languagetool.org)
 - [Documentation](https://languagetool.org/http-api/)
-- [Developer](https://dev.languagetool.org/)
-- [Git Hub](https://github.com/languagetool-org/languagetool)
-- [Privacy Policy](https://languagetool.org/legal/privacy)
-- [Terms of Service](https://languagetool.org/legal/terms)
+- [Terms of service](https://languagetool.org/legal/terms)
+- [Privacy policy](https://languagetool.org/legal/privacy)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 28.3** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 48.2 |
+| Contract governance | 9.8 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 9.5 |
+| Access clarity | 28.9 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 13.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/languagetool/](https://apis.io/providers/languagetool/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for LanguageTool: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/languagetool/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
